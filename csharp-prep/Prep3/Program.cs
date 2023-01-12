@@ -7,6 +7,8 @@ class Program
         int theNumber;
         int theGuess;
 
+        //strech challenge Variables
+        int numberOfGuess = 1;
 
         Random randomGenerator = new Random();
         theNumber = randomGenerator.Next(1,100);
@@ -15,6 +17,7 @@ class Program
 
         do 
         {
+        
         Console.WriteLine("Guess the magic number!!");
 
         Console.Write("What is your guess? ");
@@ -33,7 +36,11 @@ class Program
         else 
             {
                 Console.WriteLine("You guessed it");
-            }
+                Console.WriteLine($"Your intents to guess were {numberOfGuess}");
+            };
+
+        numberOfGuess += 1;
         } while (theGuess != theNumber);
+        
     }
 }
