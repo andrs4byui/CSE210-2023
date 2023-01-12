@@ -28,14 +28,35 @@ class Program
 
                     //Strech Chanllenge
                     int minValue = numbers.Min();
-                    Console.WriteLine($"Smallest positive number is: {}");
-                    //Console.WriteLine($"the sorted list is: {}");
+                    
+                    Console.WriteLine($"Smallest positive number is: {minValue}");
+                    numbers.Sort();
+                    Console.WriteLine("the sorted list is:");
+                    foreach (int number in numbers)
+                        {
+                        Console.WriteLine(number);
+                        };
+                
+                //    void theMinNumber()
+                //        {
+                //        numbers.Sort();
+                //        int minPossibleValue = 1;
+                //        foreach ( int number in numbers) {
+                //            if (number < 1)
+                //                {
+                //                    
+                //                };
+                //        };
                 }
             else 
                 {
                     numbers.Add(theNumberInput);
 
                 }
+            
+
         } while (theNumberInput != 0);
+
+
     }
 }
