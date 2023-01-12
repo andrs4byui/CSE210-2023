@@ -6,14 +6,20 @@ class Program
     {
         int theNumber;
         int theGuess;
+
+
+        Random randomGenerator = new Random();
+        theNumber = randomGenerator.Next(1,100);
+        
+        
+
         do 
         {
-        Console.Write("What is the magic number? ");
-        String userNumberToGuess = Console.ReadLine();
+        Console.WriteLine("Guess the magic number!!");
+
         Console.Write("What is your guess? ");
         String userGuess = Console.ReadLine();
 
-        theNumber = int.Parse(userNumberToGuess);
         theGuess = int.Parse(userGuess);
 
         if (theNumber > theGuess)
