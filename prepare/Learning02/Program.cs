@@ -7,12 +7,24 @@ class Program
         Job job1 = new Job();
         job1._jobTitle = "software Engineer";
         job1._companyName = "Microsoft";
+        job1._startYear = 2026;
+        job1._endYear = 2030;
+
         Job job2 = new Job();
         job2._jobTitle = "Software Engineer";
         job2._companyName = "Apple";
+        job2._startYear = 20230;
+        job2._endYear = 2040;
 
-        Console.WriteLine($"{job1._jobTitle} at {job1._companyName}");
-        Console.WriteLine($"{job2._jobTitle} at {job2._companyName}");
+        //job1.DisplayJobDetails();
+        //job2.DisplayJobDetails();
+
+        Resume resume = new Resume();
+        resume._personName = "Andres Soruco";
+        resume._jobs.Add(job1);
+        resume._jobs.Add(job2);
+        resume.DisplayResume();
+
 
     }
 }
