@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Text;
 
 class Program
 {
@@ -17,7 +19,7 @@ class Program
         if (userEntry == 1)
             {
                 entry.DisplayQuestion();
-                entry.SaveJournalEntry();
+                journal.SaveEntries(entry.choseIndex, entry.JournalEntry());
             }
         else if(userEntry == 2)
             {
@@ -29,7 +31,12 @@ class Program
             }
         else if(userEntry == 4)
             {
-                Console.WriteLine("this is 4");
+                DateTime date = new DateTime();
+                string theDate = date.ToLongDateString();
+                string theTime = date.ToShortDateString();
+                string newFileName = $"Journal_of {theDate}";
+                //string path = @"D:\BYU-I\CSE210_2023\CSE210-2023\prove\Develop02";
+                journal.SaveData(journal._entries, newFileName);
             }
         else if(userEntry == 5)
             {

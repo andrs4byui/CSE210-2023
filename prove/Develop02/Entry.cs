@@ -3,7 +3,8 @@ using System.Collections.Generic;
 public class Entry{
     List<string> _questions = new List<string>();
     int _index;
-    public String _journalInput; 
+    public String _journalInput;
+    public String choseIndex; 
     public void DisplayQuestion(){
         
         _questions.Add("Who was the most interesting person I interacted with today?");
@@ -15,10 +16,13 @@ public class Entry{
         //Console.WriteLine("Test");
         Random random = new Random();
         _index = random.Next(_questions.Count);
-        String choseIndex = _questions[_index];
+        choseIndex = _questions[_index];
         Console.WriteLine(choseIndex);
+  
     }
-    public void SaveJournalEntry(){
+    public String JournalEntry(){
         _journalInput = Console.ReadLine();
+        Console.WriteLine("");
+        return _journalInput;
         }
 }

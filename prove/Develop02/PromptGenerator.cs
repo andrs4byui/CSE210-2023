@@ -13,7 +13,10 @@ public class PromptGenerator{
 
     public void DisplayPrompts()
         {
+            Console.WriteLine("");
+            Console.WriteLine("******************************************");
             Console.WriteLine("Please select one of the following choices");
+            Console.WriteLine("******************************************");
             for (int i = 0; i < options.Count; i++)
                 Console.WriteLine(options.ElementAt(i).Key, 
                 options.ElementAt(i).Value);
