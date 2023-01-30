@@ -3,11 +3,11 @@
 public class PromptGenerator{
 
     Dictionary<string, int> options = new Dictionary<string, int>() {
-        {"Write", 1},
-        {"Display", 2},
-        {"Load", 3},
-        {"Save", 4},
-        {"Quit", 5} 
+        {"1. Write", 1},
+        {"2. Display", 2},
+        {"3. Load", 3},
+        {"4. Save", 4},
+        {"5. Quit", 5} 
     };
 
 

@@ -5,22 +5,23 @@ class Program
     static void Main(string[] args)
     {
         PromptGenerator promptGenerator = new PromptGenerator();
-        promptGenerator.DisplayPrompts();
-            
-        
-        String userEntryStr;
-        userEntryStr = Console.ReadLine();
-        int userEntry = Int32. Parse(userEntryStr);
-        Console.WriteLine(userEntry);
         Entry entry = new Entry();
+        Journal journal = new Journal();
+        int userEntry;
+        String userEntryStr;
+        do {
+        promptGenerator.DisplayPrompts();    
+        
+        userEntryStr = Console.ReadLine();
+        userEntry = Int32.Parse(userEntryStr);
         if (userEntry == 1)
             {
-                Console.WriteLine("First Test");
                 entry.DisplayQuestion();
+                entry.SaveJournalEntry();
             }
         else if(userEntry == 2)
             {
-                Console.WriteLine("this is 2");
+                journal.DisplayEntries();
             }
         else if(userEntry == 3)
             {
@@ -32,7 +33,8 @@ class Program
             }
         else if(userEntry == 5)
             {
-                Console.WriteLine("this is 5");
+                Console.WriteLine("Bye Bye");
             }
+        } while (userEntry != 5);
     }
 }
