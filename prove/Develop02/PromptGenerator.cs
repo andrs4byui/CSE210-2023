@@ -20,6 +20,8 @@ public class PromptGenerator{
             for (int i = 0; i < options.Count; i++)
                 Console.WriteLine(options.ElementAt(i).Key, 
                 options.ElementAt(i).Value);
+            
+            Console.Write("What would you like to do? ");
             }
             
 
