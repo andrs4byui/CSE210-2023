@@ -1,6 +1,5 @@
 using System;
-using System.IO;
-using System.Text;
+
 
 class Program
 {
@@ -10,9 +9,7 @@ class Program
         Entry entry = new Entry();
         Journal journal = new Journal();
 
-        DateTime date = new DateTime();
-        string theDate = date.ToLongDateString();
-        string theTime = date.ToShortDateString();
+
 
 
         int userEntry;
@@ -24,12 +21,13 @@ class Program
         userEntry = Int32.Parse(userEntryStr);
         if (userEntry == 1)
             {
-                entry.DisplayQuestion();
-                journal.SaveEntries(entry.choseIndex, entry.JournalEntry());
+                promptGenerator.GetRandomQuestion();
+                entry.singleEntry();
+                journal.addEntryToJournal();
             }
         else if(userEntry == 2)
             {
-                journal.DisplayEntries();
+                entry.JournalEntry();
             }
         else if(userEntry == 3)
             {
@@ -38,13 +36,16 @@ class Program
         else if(userEntry == 4)
             {
 
-                string newFileName = $"Journal_of{theDate}";
+                //string newFileName = $"Journal_of{theDate}";
                 //string path = @"D:\BYU-I\CSE210_2023\CSE210-2023\prove\Develop02";
-                journal.SaveData(journal._entries, newFileName);
+                journal.SaveData();
             }
         else if(userEntry == 5)
             {
                 Console.WriteLine("Bye Bye");
+            }
+        else {
+                Console.WriteLine("Please enter a valid option");
             }
         } while (userEntry != 5);
     }
