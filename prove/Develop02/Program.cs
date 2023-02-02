@@ -5,15 +5,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        PromptGenerator promptGenerator = new PromptGenerator();
-        Entry entry = new Entry();
+
         Journal journal = new Journal();
-
-
-
-
+        PromptGenerator promptGenerator = new PromptGenerator();
         int userEntry;
         String userEntryStr;
+
         do {
         promptGenerator.DisplayPrompts();    
         
@@ -21,21 +18,19 @@ class Program
         userEntry = Int32.Parse(userEntryStr);
         if (userEntry == 1)
             {
-                promptGenerator.GetRandomQuestion();
-                entry.singleEntry();
-                journal.addEntryToJournal();
+                journal.Write();
+                //journal.addEntryToJournal();
             }
         else if(userEntry == 2)
             {
-                entry.JournalEntry();
+                journal.Display();
             }
         else if(userEntry == 3)
             {
-                Console.WriteLine("this is 3");
+                journal.ReadFile();
             }
         else if(userEntry == 4)
             {
-
                 //string newFileName = $"Journal_of{theDate}";
                 //string path = @"D:\BYU-I\CSE210_2023\CSE210-2023\prove\Develop02";
                 journal.SaveData();
@@ -45,6 +40,7 @@ class Program
                 Console.WriteLine("Bye Bye");
             }
         else {
+                Console.WriteLine($"{userEntry} is not a valid option");
                 Console.WriteLine("Please enter a valid option");
             }
         } while (userEntry != 5);
