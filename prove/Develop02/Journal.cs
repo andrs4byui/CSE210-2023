@@ -3,30 +3,30 @@ using System.IO;
 public class Journal{
     public List<object> _entries = new List<object>();
     //public string fileName;
-    PromptGenerator promptGenerator = new PromptGenerator();
+    PromptGenerator _promptGenerator = new PromptGenerator();
     //public EntryClass entry = new EntryClass();
-    String prompt = "";
+    String _prompt = "";
     public string _dateText;
-    public string thePrompt;
+    public string _thePrompt;
     DateTime theCurrentTime = DateTime.Now;
-    String lineInfoToSave = "";
-    String userEntry;
+    String _lineInfoToSave = "";
+    String _userEntry;
     //write an entry method
     public void Write (){
-            prompt = promptGenerator.DisplayQuestion();
-            userEntry = Console.ReadLine();
+            _prompt = _promptGenerator.DisplayQuestion();
+            _userEntry = Console.ReadLine();
     }
     //Display method
     public void Display(){
             
         _dateText = $"{theCurrentTime.ToShortDateString()}";
-        thePrompt = prompt;
-        lineInfoToSave = $"{_dateText} - {thePrompt}";
-        Console.WriteLine(lineInfoToSave);
-        Console.WriteLine(userEntry);
+        _thePrompt = _prompt;
+        _lineInfoToSave = $"{_dateText} - {_thePrompt}";
+        Console.WriteLine(_lineInfoToSave);
+        Console.WriteLine(_userEntry);
 
         //Console.Write(_dateText);
-        //Console.WriteLine(thePrompt);
+        //Console.WriteLine(_thePrompt);
 
             // string theTime = date.ToShortDateString();
     }
@@ -38,8 +38,8 @@ public class Journal{
 
             using (StreamWriter outputFile = new StreamWriter(fileName))
                 {
-                    _entries.Add($"{_dateText} - {thePrompt}");
-                    _entries.Add($"{userEntry}");
+                    _entries.Add($"{_dateText} - {_thePrompt}");
+                    _entries.Add($"{_userEntry}");
                     _entries.Add(",");
                     // You can add text to the file with the WriteLine method
                     for (int i = 0; i < _entries.Count; i++){

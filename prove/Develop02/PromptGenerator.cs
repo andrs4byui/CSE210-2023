@@ -2,7 +2,7 @@
 
 public class PromptGenerator{
 
-    Dictionary<string, int> options = new Dictionary<string, int>() {
+    Dictionary<string, int> _options = new Dictionary<string, int>() {
         {"1. Write", 1},
         {"2. Display", 2},
         {"3. Load", 3},
@@ -12,8 +12,8 @@ public class PromptGenerator{
         // Attributes for the display questions method
     public List<string> _questions = new List<string>();
 
-    int index;
-    public String choseIndex; 
+    int _index;
+    public String _choseIndex; 
 
     public void DisplayPrompts()
         {
@@ -21,9 +21,9 @@ public class PromptGenerator{
             Console.WriteLine("******************************************");
             Console.WriteLine("Please select one of the following choices");
             Console.WriteLine("******************************************");
-            for (int i = 0; i < options.Count; i++)
-                Console.WriteLine(options.ElementAt(i).Key, 
-                options.ElementAt(i).Value);
+            for (int i = 0; i < _options.Count; i++)
+                Console.WriteLine(_options.ElementAt(i).Key, 
+                _options.ElementAt(i).Value);
             
             Console.Write("What would you like to do? ");
             }
@@ -35,10 +35,10 @@ public class PromptGenerator{
         _questions.Add("How did I see the hand of the Lord in my life today?");
         _questions.Add("What was the strongest emotion I felt today?");
         _questions.Add("If I had one thing I could do over today, what would it be?");
-        index = random.Next(_questions.Count);
-        choseIndex = _questions[index];
+        _index = random.Next(_questions.Count);
+        _choseIndex = _questions[_index];
         //Console.WriteLine(choseIndex);
-        return choseIndex;
+        return _choseIndex;
     }
 
     public String DisplayQuestion(){

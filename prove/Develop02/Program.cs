@@ -8,46 +8,46 @@ class Program
 
         Journal journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
-        int userEntry;
-        String userEntryStr;
-        String fileName;
+        int _userEntry;
+        String _userEntryStr;
+        String _fileName;
         do {
         promptGenerator.DisplayPrompts();    
         
-        userEntryStr = Console.ReadLine();
-        userEntry = Int32.Parse(userEntryStr);
+        _userEntryStr = Console.ReadLine();
+        _userEntry = Int32.Parse(_userEntryStr);
         
-        if (userEntry == 1)
+        if (_userEntry == 1)
             {
                 journal.Write();
                 //journal.addEntryToJournal();
             }
-        else if(userEntry == 2)
+        else if(_userEntry == 2)
             {
                 journal.Display();
             }
-        else if(userEntry == 3)
+        else if(_userEntry == 3)
             {
                 Console.Write("Enter the filename you want to read: ");
-                fileName = Console.ReadLine();
-                journal.ReadFile(fileName);
+                _fileName = Console.ReadLine();
+                journal.ReadFile(_fileName);
             }
-        else if(userEntry == 4)
+        else if(_userEntry == 4)
             {
                 //string newFileName = $"Journal_of{theDate}";
                 //string path = @"D:\BYU-I\CSE210_2023\CSE210-2023\prove\Develop02";
                 Console.WriteLine("Please enter your file name: ");
-                fileName = Console.ReadLine();
-                journal.SaveData(fileName);
+                _fileName = Console.ReadLine();
+                journal.SaveData(_fileName);
             }
-        else if(userEntry == 5)
+        else if(_userEntry == 5)
             {
                 Console.WriteLine("Bye Bye");
             }
         else {
-                Console.WriteLine($"{userEntry} is not a valid option");
+                Console.WriteLine($"{_userEntry} is not a valid option");
                 Console.WriteLine("Please enter a valid option");
             }
-        } while (userEntry != 5);
+        } while (_userEntry != 5);
     }
 }
