@@ -2,7 +2,7 @@ using System;
 using System.IO;
 public class Journal{
     public List<object> _entries = new List<object>();
-    public string fileName;
+    //public string fileName;
     PromptGenerator promptGenerator = new PromptGenerator();
     //public EntryClass entry = new EntryClass();
     String prompt = "";
@@ -32,11 +32,10 @@ public class Journal{
     }
 
     //Save the entries method
-    public void SaveData()
+    public void SaveData(String fileName)
         {
 
-            Console.WriteLine("Please enter your file name: ");
-            fileName = Console.ReadLine();
+
             using (StreamWriter outputFile = new StreamWriter(fileName))
                 {
                     _entries.Add($"{_dateText} - {thePrompt}");
@@ -54,17 +53,31 @@ public class Journal{
 
     //Read method
 
-    public void ReadFile(){
-        Console.Write("Enter the filename you want to read: ");
-        string filename = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(filename);
+    public void ReadFile(String fileName){
+;
+        //string[] lines = System.IO.File.ReadAllLines(fileName);
+//
+        //foreach (string line in lines)
+        //{
+        //    string[] parts = line.Split(",");
+        //
+        //    string dateAndQuestion = parts[0];
+        //    //string userAnswer = parts[1];
+        //}
+        string data;
+        try {
+            StreamReader reader = new StreamReader(fileName);
+            data = reader.ReadLine();
 
-        foreach (string line in lines)
+            while (data != null)
+            {
+                Console.WriteLine(data);
+                data = reader.ReadLine();
+            }
+        }
+        catch (Exception e)
         {
-            string[] parts = line.Split(",");
-
-            string dateAndQuestion = parts[0];
-            string userAnswer = parts[1];
+            Console.WriteLine(e.Message);
         }
     }
 

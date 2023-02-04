@@ -10,12 +10,13 @@ class Program
         PromptGenerator promptGenerator = new PromptGenerator();
         int userEntry;
         String userEntryStr;
-
+        String fileName;
         do {
         promptGenerator.DisplayPrompts();    
         
         userEntryStr = Console.ReadLine();
         userEntry = Int32.Parse(userEntryStr);
+        
         if (userEntry == 1)
             {
                 journal.Write();
@@ -27,13 +28,17 @@ class Program
             }
         else if(userEntry == 3)
             {
-                journal.ReadFile();
+                Console.Write("Enter the filename you want to read: ");
+                fileName = Console.ReadLine();
+                journal.ReadFile(fileName);
             }
         else if(userEntry == 4)
             {
                 //string newFileName = $"Journal_of{theDate}";
                 //string path = @"D:\BYU-I\CSE210_2023\CSE210-2023\prove\Develop02";
-                journal.SaveData();
+                Console.WriteLine("Please enter your file name: ");
+                fileName = Console.ReadLine();
+                journal.SaveData(fileName);
             }
         else if(userEntry == 5)
             {
