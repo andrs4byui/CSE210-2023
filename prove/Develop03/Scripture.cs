@@ -6,28 +6,31 @@ public class Scripture{
     Random random = new Random();
     private string _scriptureText;
     public string ScriptureText { get => _scriptureText; set => _scriptureText = value; }
-
+    public List<Word> _words = new List<Word>();
+    public Scripture(){
+        List<string> list = ScriptureText.Split(' ').ToList(); 
+        for (int i = 0 ; i<list.Count(); i++){
+            Word word = new Word(list[i]);
+            _words.Add(word);
+        }
+    }
     public void PopulateScripture(){
         List<string> list = ScriptureText.Split(' ').ToList(); 
-        for (int i = 0 ; i<list.Count(); i++){
-            Console.Write(list[i] + " ");
-        }
+
         Console.WriteLine();
 
     }
 
+// while loop if words ar not hidden
     public void HideWords(){
-        List<string> list = ScriptureText.Split(' ').ToList(); 
-        list[random.Next(list.Count)] = new string('_', list[random.Next(list.Count)].Count());
+        int randomIndex = random.Next(_words.Count);
+        _words[randomIndex] = new string('_', list[randomIndex].Count());
 
-        
-        for (int i = 0 ; i<list.Count(); i++){
+
+        for (int i = 0 ; i<_words.Count(); i++){
             Console.Write(list[i] + " ");
         }
         Console.WriteLine();
-    }
-    public void RenderOutput(){
-        HideWords();
     }
 
 
