@@ -4,23 +4,35 @@ public class Scripture{
     Reference refernece = new Reference("Juan", 3, 16);
     //string[] words = {" 16", " For", " God", " so", " loved", " the", " world", "," , " that", " he", " gave", " his", " only", " begotten", " Son", ",", " that", " whosoever", " believeth", " in", " him", " should", " not", " perish", ",", " but", " have", " heverlasting", " life", "."}; 
     Random random = new Random();
-    public string scriptureText = "";
+    private string _scriptureText;
+    public string ScriptureText { get => _scriptureText; set => _scriptureText = value; }
+
     public void PopulateScripture(){
-        List<string> list = scriptureText.Split(' ').ToList(); 
-        for (int i=0 ; i<list.Count(); i++){
+        List<string> list = ScriptureText.Split(' ').ToList(); 
+        for (int i = 0 ; i<list.Count(); i++){
+            Console.Write(list[i] + " ");
+        }
+        Console.WriteLine();
+
+    }
+
+    public void HideWords(){
+        List<string> list = ScriptureText.Split(' ').ToList(); 
+        list[random.Next(list.Count)] = new string('_', list[random.Next(list.Count)].Count());
+
+        
+        for (int i = 0 ; i<list.Count(); i++){
             Console.Write(list[i] + " ");
         }
         Console.WriteLine();
     }
-    public void HideWords(){
-        List<string> list = scriptureText.Split(' ').ToList(); 
-        string hide1 = list[random.Next(list.Count)];
-        string hide2 = list[random.Next(list.Count)];
-        string hide3 = list[random.Next(list.Count)];
-        Console.WriteLine(hide1);
-        Console.WriteLine(hide2);
-        Console.WriteLine(hide3);
-
+    public void RenderOutput(){
+        HideWords();
     }
-    
+
+
 }
+//This piece of code was helpful to change form a character to a "_" string
+//string s = "fourwordsaretwenty";
+//s = new string('*', s.Count());
+//Console.WriteLine(s);

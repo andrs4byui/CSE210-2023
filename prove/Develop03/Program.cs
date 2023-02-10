@@ -10,17 +10,10 @@ class Program
         //List<string> list = new List<string>();
 
         string[] splittedStringArray = wordsOfScripture.Split(' ');
-        scripture.scriptureText = wordsOfScripture;
+        scripture.ScriptureText = wordsOfScripture;
         scripture.PopulateScripture();
+        //scripture.List = scripture.ScriptureText.Split(' ').ToList();
         scripture.HideWords();
-        //foreach (string wordStringInArray in splittedStringArray) {
-        //    list.Add(wordStringInArray);
-        //    
-        //}
-        //foreach (string word in splittedStringArray)
-        //{
-        //    Console.Write(word + " ");
-        //}
 
 
     }
