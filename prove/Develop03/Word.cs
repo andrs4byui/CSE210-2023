@@ -2,22 +2,21 @@ public class Word {
     //Keeps track of a single word and whether it is shown or hidden.
     private string _wordString;
     private bool _isHidden;
+    public string WordString { get => _wordString; set => _wordString = value; }
+    public bool IsHidden { get => _isHidden; set => _isHidden = value; }
 
     public Word(string wordString){
-        _isHidden = false;
-        _wordString = wordString;
+        IsHidden = false;
+        WordString = wordString;
     }
+
 
     public void Hide(){
-        _wordString = new string('_', _wordString.Count());
-        _isHidden = true;
+        WordString = new string('_', WordString.Count());
+        IsHidden = true;
     }
 }
-    //private string HideWord(){
-    //    foreach (char c in Hide){
-    //        _hide = "_";
-    //        return _hide;
-    //    }
-    //}
-
-}
+//This piece of code was helpful to change form a character to a "_" string
+//string s = "fourwordsaretwenty";
+//s = new string('*', s.Count());
+//Console.WriteLine(s);
