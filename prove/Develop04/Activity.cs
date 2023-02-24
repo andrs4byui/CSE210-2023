@@ -10,11 +10,15 @@ class Activity {
         _activityTime = 0;
         _finishMessage = "";
     }
-    public Activity(string activityName, string activitySpecifications, int activityTime, string finsihMessage){
+    public Activity(string activityName, string activitySpecifications, string timePrompt){
         _activityName = activityName;
         _activitySpecifications = activitySpecifications;
-        _activityTime = activityTime;
-        _finishMessage = finsihMessage;
+        //_finishMessage = finsihMessage;
+        Console.WriteLine($"Welcome to the {_activityName}");
+        Console.WriteLine();
+        Console.WriteLine(_activitySpecifications);        
+        Console.WriteLine();
+        Console.Write(timePrompt); 
     }
 
     protected void Timer(){
@@ -29,16 +33,31 @@ class Activity {
     public void Spinning(){
         Console.Write("/");
         Thread.Sleep(500);
-        Console.Write("\b \b"); // Erase the + character
+        Console.Write("\b \b"); 
         Console.Write("|");
         Thread.Sleep(500);
-        Console.Write("\b \b"); // Erase the + character
+        Console.Write("\b \b"); 
         Console.Write(@"\");
         Thread.Sleep(500);
-        Console.Write("\b \b"); // Erase the + character
+        Console.Write("\b \b"); 
         Console.Write(@"-");
         Thread.Sleep(500);
+        Console.Write("\b \b"); 
+    }
+    public void SpinningTime(int time){
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(time);
+        DateTime currentTime;
+        do {
+            Spinning();
+            currentTime = DateTime.Now;
+        } while(currentTime < futureTime);
+    }
+    public void Counterback(int CountFromNumberBackwards){
+        for (int i = CountFromNumberBackwards; i > 0; i--){
+        Console.Write($"{i}");
+        Thread.Sleep(1000);
         Console.Write("\b \b"); // Erase the + character
-        Console.WriteLine("");
+        }
     }
 }
