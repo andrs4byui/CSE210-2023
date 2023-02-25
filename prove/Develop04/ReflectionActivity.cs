@@ -36,14 +36,12 @@ class ReflectionActivity : Activity {
     public void PonderActivity(int time){
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(time);
-        DateTime currentTime;
-        do {
-            for (int i = 0; i < reflectionPromptQuestions.Count ; i++){
+        int i = 0;
+        while (DateTime.Now < futureTime && i < reflectionPromptMessages.Count) {
             Console.Write($"{reflectionPromptQuestions[i]}");
             SpinningTime(5);
             Console.WriteLine("\b \b"); 
-            }
-            currentTime = DateTime.Now;
-        } while (currentTime < futureTime); 
+            i++;
+        } 
     }
 }

@@ -48,7 +48,7 @@ class Program
                 Console.WriteLine("");
                 reflectionActivity.PonderActivity(userTimeImput);
                 Console.WriteLine("Well done!!");
-                Console.WriteLine($"You have completed another {userTimeImput} seconds of the Breathing Activity.");
+                Console.WriteLine($"You have completed another {userTimeImput} seconds of the Reflection Activity.");
                 activity.SpinningTime(3);
                 }
             else if (userinput == "3"){
@@ -57,7 +57,9 @@ class Program
                 Console.WriteLine("Get Ready");
                 activity.SpinningTime(6);
                 Console.WriteLine("");
-                listingActivity.PromptMethod(userTimeImput);}
+                listingActivity.PromptMethod(userTimeImput);
+                Console.WriteLine($"You have completed another {userTimeImput} seconds of the Reflection Activity.");
+                }
             else {
                 Console.WriteLine("!!!This is not a valid input.!!!");
                 Console.WriteLine("Please choose one of the following options.");
