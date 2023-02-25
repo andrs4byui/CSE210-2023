@@ -1,7 +1,7 @@
 class Activity {
     protected string _activityName;
     protected string _activitySpecifications;
-    public int _activityTime;
+    protected int _activityTime;
     protected string _finishMessage;
 
     public Activity(){
