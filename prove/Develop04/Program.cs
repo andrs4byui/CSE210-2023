@@ -25,29 +25,27 @@ class Program
             userinput = Console.ReadLine();
             if (userinput == "1"){
                 Activity activity1 = new Activity(_activity1Name, _activity1Specifications, _activityTimeMessage);
-                int activityTime = Int32.Parse(Console.ReadLine());
+                //activity1._activityTime = Int32.Parse(Console.ReadLine());
                 activity1.StartActivity();
                 breathingActivity.BreathingTimer();
-                activity1.FinishActivity(activityTime);
+                activity1.FinishActivity();
             }
             else if (userinput == "2"){
                 Activity activity2 = new Activity(_activity2Name, _activity2Specifications, _activityTimeMessage);
-                int activityTime = Int32.Parse(Console.ReadLine());
                 activity2.StartActivity();
                 reflectionActivity.PromptMethod();
                 Console.Write("You may begin in: ");
                 activity2.Counterback(3);
                 Console.WriteLine("");
-                reflectionActivity.PonderActivity(activityTime);
-                activity2.FinishActivity(activityTime);
+                reflectionActivity.PonderActivity();
+                activity2.FinishActivity();
                 }
             else if (userinput == "3"){
                 Activity activity3 = new Activity(_activity3Name, _activity3Specifications, _activityTimeMessage);
-                int activityTime = Int32.Parse(Console.ReadLine());
                 activity3.StartActivity();
-                listingActivity.PromptMethod(activityTime);
+                listingActivity.PromptMethod();
                 listingActivity.DisplayNumberOfImputs();
-                activity3.FinishActivity(activityTime);
+                activity3.FinishActivity();
                 }
             else if (userinput != "4") {
                 Console.WriteLine("!!!This is not a valid input.!!!");

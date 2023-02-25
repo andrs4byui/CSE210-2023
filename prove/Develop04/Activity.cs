@@ -3,7 +3,7 @@ class Activity {
     protected string _activitySpecifications;
     public int _activityTime;
     protected string _finishMessage;
-    
+
     public Activity(){
         _activityName = "";
         _activitySpecifications = "";
@@ -60,15 +60,15 @@ class Activity {
     }
     public void StartActivity(){
         //int userTimeImput = Int32.Parse(Console.ReadLine());
-        //_activityTime = Int32.Parse(Console.ReadLine());
+        _activityTime = Int32.Parse(Console.ReadLine());
         Console.WriteLine("Get Ready");
         SpinningTime(6);
         Console.WriteLine("");
     }
-    public void FinishActivity(int activityTime){
+    public void FinishActivity(){
         Console.WriteLine("Well done!!");
         SpinningTime(3);
-        _finishMessage = $"You have completed another {activityTime} seconds of the {_activityName}.";
+        _finishMessage = $"You have completed another {_activityTime} seconds of the {_activityName}.";
         Console.WriteLine(_finishMessage);
         SpinningTime(3);
     }

@@ -31,9 +31,9 @@ class ReflectionActivity : Activity {
             Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         }
     }
-    public void PonderActivity(int time){
+    public void PonderActivity(){
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(time);
+        DateTime futureTime = startTime.AddSeconds(_activityTime);
         int i = 0;
         while (DateTime.Now < futureTime && i < reflectionPromptMessages.Count) {
             Console.Write($"{reflectionPromptQuestions[i]}");

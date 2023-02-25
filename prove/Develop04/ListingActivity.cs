@@ -8,7 +8,7 @@ class ListingActivity : Activity {
         _listingPromptMessages.Add("When have you felt the Holy Ghost this month?");
         _listingPromptMessages.Add("Who are some of your personal heroes?");
     }
-    public void PromptMethod(int time) {
+    public void PromptMethod() {
         Random random = new Random();
         int promptIndex = random.Next(_listingPromptMessages.Count);
         Console.WriteLine($"--- {_listingPromptMessages[promptIndex]} ---");
@@ -16,7 +16,7 @@ class ListingActivity : Activity {
         Counterback(5);
         Console.WriteLine();
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(time);
+        DateTime futureTime = startTime.AddSeconds(_activityTime);
         DateTime currentTime;
         do {
             Console.Write("> ");
