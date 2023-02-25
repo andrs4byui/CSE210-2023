@@ -1,12 +1,11 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
         Activity activity = new Activity();
         string userinput = "";
-        BreathingActivity breathingActivity = new BreathingActivity(4);
+        BreathingActivity breathingActivity = new BreathingActivity();
         ReflectionActivity reflectionActivity = new ReflectionActivity();
         ListingActivity listingActivity = new ListingActivity();
 
@@ -20,52 +19,42 @@ class Program
         
         string _activityTimeMessage = "How long, in seconds, would you like for your session? ";
         
-        
         do {
             activity.DisplayActivities();
             Console.Write("Select a choice from the menu: ");
             userinput = Console.ReadLine();
-
             if (userinput == "1"){
                 Activity activity1 = new Activity(_activity1Name, _activity1Specifications, _activityTimeMessage);
-                int userTimeImput = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Get Ready");
-                activity.SpinningTime(6);
-                Console.WriteLine("");
-                breathingActivity.breathingTimer(userTimeImput);
-                Console.WriteLine("Well done!!");
-                Console.WriteLine($"You have completed another {userTimeImput} seconds of the Breathing Activity.");
+                int activityTime = Int32.Parse(Console.ReadLine());
+                activity1.StartActivity();
+                breathingActivity.BreathingTimer();
+                activity1.FinishActivity(activityTime);
             }
             else if (userinput == "2"){
                 Activity activity2 = new Activity(_activity2Name, _activity2Specifications, _activityTimeMessage);
-                int userTimeImput = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Get Ready");
-                activity.SpinningTime(6);
-                Console.WriteLine("");
+                int activityTime = Int32.Parse(Console.ReadLine());
+                activity2.StartActivity();
                 reflectionActivity.PromptMethod();
                 Console.Write("You may begin in: ");
-                activity.Counterback(3);
+                activity2.Counterback(3);
                 Console.WriteLine("");
-                reflectionActivity.PonderActivity(userTimeImput);
-                Console.WriteLine("Well done!!");
-                Console.WriteLine($"You have completed another {userTimeImput} seconds of the Reflection Activity.");
-                activity.SpinningTime(3);
+                reflectionActivity.PonderActivity(activityTime);
+                activity2.FinishActivity(activityTime);
                 }
             else if (userinput == "3"){
                 Activity activity3 = new Activity(_activity3Name, _activity3Specifications, _activityTimeMessage);
-                int userTimeImput = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Get Ready");
-                activity.SpinningTime(6);
-                Console.WriteLine("");
-                listingActivity.PromptMethod(userTimeImput);
-                Console.WriteLine($"You have completed another {userTimeImput} seconds of the Reflection Activity.");
+                int activityTime = Int32.Parse(Console.ReadLine());
+                activity3.StartActivity();
+                listingActivity.PromptMethod(activityTime);
+                listingActivity.DisplayNumberOfImputs();
+                activity3.FinishActivity(activityTime);
                 }
-            else {
+            else if (userinput != "4") {
                 Console.WriteLine("!!!This is not a valid input.!!!");
                 Console.WriteLine("Please choose one of the following options.");
                 Console.WriteLine("");
             }
         } while (userinput != "4" );
-
+        Console.WriteLine("Bye Bye");
     }
 }

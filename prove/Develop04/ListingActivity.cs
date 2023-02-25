@@ -1,7 +1,6 @@
 class ListingActivity : Activity {
     List<string> _listingPromptMessages = new List<string>();
     List<string> _userImputs = new List<string>();
-    
     public ListingActivity(){
         _listingPromptMessages.Add("Who are people that you appreciate?");
         _listingPromptMessages.Add("What are personal strengths of yours?");
@@ -27,6 +26,8 @@ class ListingActivity : Activity {
         } while (currentTime < futureTime);
     }
     public void DisplayNumberOfImputs() {
-        
+        Console.WriteLine("************************************************");
+        Console.WriteLine($"You have added {_userImputs.Count} items to your list");
+        Console.WriteLine("************************************************");
     }
 }

@@ -1,5 +1,4 @@
 class ReflectionActivity : Activity {
-
     List<string> reflectionPromptMessages = new List<string>();
     List<string> reflectionPromptQuestions = new List<string>();
 
@@ -9,7 +8,6 @@ class ReflectionActivity : Activity {
         reflectionPromptMessages.Add("Think of a time when you helped someone in need.");
         reflectionPromptMessages.Add("Think of a time when you did something truly selfless.");
   
-
         reflectionPromptQuestions.Add("Why was this experience meaningful to you? ");
         reflectionPromptQuestions.Add("Have you ever done anything like this before? ");
         reflectionPromptQuestions.Add("How did you get started? ");

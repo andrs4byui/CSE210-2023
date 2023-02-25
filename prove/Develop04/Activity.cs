@@ -1,9 +1,9 @@
 class Activity {
     protected string _activityName;
     protected string _activitySpecifications;
-    protected int _activityTime;
+    public int _activityTime;
     protected string _finishMessage;
-
+    
     public Activity(){
         _activityName = "";
         _activitySpecifications = "";
@@ -21,8 +21,6 @@ class Activity {
         Console.Write(timePrompt); 
     }
 
-    protected void Timer(){
-    }
     public void DisplayActivities(){
         Console.WriteLine("Menu Options:");
         Console.WriteLine(" 1. Start breathing activity");
@@ -59,5 +57,19 @@ class Activity {
         Thread.Sleep(1000);
         Console.Write("\b \b"); // Erase the + character
         }
+    }
+    public void StartActivity(){
+        //int userTimeImput = Int32.Parse(Console.ReadLine());
+        //_activityTime = Int32.Parse(Console.ReadLine());
+        Console.WriteLine("Get Ready");
+        SpinningTime(6);
+        Console.WriteLine("");
+    }
+    public void FinishActivity(int activityTime){
+        Console.WriteLine("Well done!!");
+        SpinningTime(3);
+        _finishMessage = $"You have completed another {activityTime} seconds of the {_activityName}.";
+        Console.WriteLine(_finishMessage);
+        SpinningTime(3);
     }
 }
