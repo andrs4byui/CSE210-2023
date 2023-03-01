@@ -1,5 +1,5 @@
-class Shape{
-    protected string _color;
+public abstract class Shape{
+    public string _color;
 
     public string GetColor(){
         return _color;
@@ -9,12 +9,11 @@ class Shape{
         _color = color;
     }
     public Shape(){
-
+        _color = "";
     }
 
     public Shape(string color){
         _color = color;
     }
-    public virtual double GetArea(){
-    }
+    public abstract double GetArea();
 }

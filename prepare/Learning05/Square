@@ -1,5 +1,5 @@
-class Square : Shape{
-    private double _side;
+public class Square : Shape{
+    public double _side;
     public Square(string color, double side){
         _color = color;
         _side = side;

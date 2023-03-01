@@ -1,7 +1,12 @@
-class Circle : Shape {
+public class Circle : Shape {
     double _radius;
 
-    public override void GetArea(){
-        
+    public Circle(string color, double radius){
+        _color = color;
+        _radius = radius;
+    }
+    public override double GetArea(){
+        double area = Math.PI * _radius * _radius;
+        return area;
     }
 }
