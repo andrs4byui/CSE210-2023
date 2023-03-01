@@ -24,28 +24,24 @@ class Program
             Console.Write("Select a choice from the menu: ");
             userinput = Console.ReadLine();
             if (userinput == "1"){
-                Activity activity1 = new Activity(_activity1Name, _activity1Specifications, _activityTimeMessage);
-                //activity1._activityTime = Int32.Parse(Console.ReadLine());
-                activity1.StartActivity();
+                breathingActivity.StartActivity(_activity1Name, _activity1Specifications, _activityTimeMessage);
                 breathingActivity.BreathingTimer();
-                activity1.FinishActivity();
+                breathingActivity.FinishActivity();
             }
             else if (userinput == "2"){
-                Activity activity2 = new Activity(_activity2Name, _activity2Specifications, _activityTimeMessage);
-                activity2.StartActivity();
+                reflectionActivity.StartActivity(_activity2Name, _activity2Specifications, _activityTimeMessage);
                 reflectionActivity.PromptMethod();
                 Console.Write("You may begin in: ");
-                activity2.Counterback(3);
+                reflectionActivity.Counterback(3);
                 Console.WriteLine("");
                 reflectionActivity.PonderActivity();
-                activity2.FinishActivity();
+                reflectionActivity.FinishActivity();
                 }
             else if (userinput == "3"){
-                Activity activity3 = new Activity(_activity3Name, _activity3Specifications, _activityTimeMessage);
-                activity3.StartActivity();
+                listingActivity.StartActivity(_activity3Name, _activity3Specifications, _activityTimeMessage);
                 listingActivity.PromptMethod();
                 listingActivity.DisplayNumberOfImputs();
-                activity3.FinishActivity();
+                listingActivity.FinishActivity();
                 }
             else if (userinput != "4") {
                 Console.WriteLine("!!!This is not a valid input.!!!");

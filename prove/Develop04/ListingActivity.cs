@@ -29,5 +29,6 @@ class ListingActivity : Activity {
         Console.WriteLine("************************************************");
         Console.WriteLine($"You have added {_userImputs.Count} items to your list");
         Console.WriteLine("************************************************");
+        _userImputs.Clear();
     }
 }

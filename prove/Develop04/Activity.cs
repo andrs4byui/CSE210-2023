@@ -10,17 +10,6 @@ class Activity {
         _activityTime = 0;
         _finishMessage = "";
     }
-    public Activity(string activityName, string activitySpecifications, string timePrompt){
-        _activityName = activityName;
-        _activitySpecifications = activitySpecifications;
-        //_finishMessage = finsihMessage;
-        Console.WriteLine($"Welcome to the {_activityName}");
-        Console.WriteLine();
-        Console.WriteLine(_activitySpecifications);        
-        Console.WriteLine();
-        Console.Write(timePrompt); 
-    }
-
     public void DisplayActivities(){
         Console.WriteLine("Menu Options:");
         Console.WriteLine(" 1. Start breathing activity");
@@ -58,8 +47,14 @@ class Activity {
         Console.Write("\b \b"); // Erase the + character
         }
     }
-    public void StartActivity(){
-        //int userTimeImput = Int32.Parse(Console.ReadLine());
+    public void StartActivity(string activityName, string activitySpecifications, string timePrompt){
+        _activityName = activityName;
+        _activitySpecifications = activitySpecifications;
+        Console.WriteLine($"Welcome to the {_activityName}");
+        Console.WriteLine();
+        Console.WriteLine(_activitySpecifications);        
+        Console.WriteLine();
+        Console.Write(timePrompt);
         _activityTime = Int32.Parse(Console.ReadLine());
         Console.WriteLine("Get Ready");
         SpinningTime(6);
