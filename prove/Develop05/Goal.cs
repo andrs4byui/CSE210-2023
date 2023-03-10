@@ -1,9 +1,16 @@
 public abstract class Goal {
 
-    protected string _goalName ;
-    protected string _goalDescription;
+    public string _goalName ;
+    public string _goalDescription;
     protected int _goalPoints;
-    protected int _goalawardedPoints;
+    public int _goalawardedPoints;
+    public bool _checklistGoal;
+    public int GetGoalPoints(){
+        return _goalPoints;
+    }
+    public void SetGoalPoints(int goalPoints){
+        _goalPoints = goalPoints;
+    }
     public Goal(){
     
     }
@@ -16,6 +23,7 @@ public abstract class Goal {
         _goalPoints = goalPoints;
     }
     public abstract void DisplayPoints();
+    public abstract void DisplayQuestions();
 
 
 
