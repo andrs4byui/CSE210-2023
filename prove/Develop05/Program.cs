@@ -43,9 +43,28 @@ class Program
             }
             else if (goalManager._userOptionChoice == "3"){
                 goalManager.SaveGoals();
+                Console.WriteLine("Your file was succesfully saved");
             }
             else if (goalManager._userOptionChoice == "4"){
                 goalManager.LoadGoals();
+            }
+            else if (goalManager._userOptionChoice == "5"){
+                goalManager.RecordEvent();
+            }
+            else if (goalManager._userOptionChoice == "6"){
+                Console.WriteLine("Did you save your goal list? Y/N");
+                string userSaveInput = Console.ReadLine();
+                if (userSaveInput != "Yes" | userSaveInput != "Y" | userSaveInput != "yes"){
+                    Console.WriteLine("Are you sure to exit without saving?");
+                    string userDecitionToSave = Console.ReadLine();
+                    if (userDecitionToSave == "no"){
+                        goalManager._userOptionChoice = "0";
+                    }
+                    else {
+                        return;
+                    }
+                }
+
             }
             else {
                 Console.WriteLine("This is not a valid input.");

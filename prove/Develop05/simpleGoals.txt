@@ -1,0 +1,4 @@
+40
+Simple Goal:a third simple goal,the third simple goal,40,False
+Simple Goal:a third simple goal,the third simple goal,40,False
+Simple Goal:a third simple goal,the third simple goal,40,True

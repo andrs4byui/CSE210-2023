@@ -31,8 +31,14 @@ public class GoalManager{
         Console.WriteLine("The goals are");
         for (int i = 0; i < _goals.Count(); i++){
             if (_goals[i]._goalTypeName == "Simple Goal"){
+                if(_goals[i]._isCompleted == true){
+                _goalInformation = $"{i + 1}. [X] {_goals[i]._goalName} ({_goals[i]._goalDescription})";
+                Console.WriteLine(_goalInformation);
+                }
+                else if (_goals[i]._isCompleted == false) {
                 _goalInformation = $"{i + 1}. [ ] {_goals[i]._goalName} ({_goals[i]._goalDescription})";
                 Console.WriteLine(_goalInformation);
+                }
             }
             else if (_goals[i]._goalTypeName == "Eternal Goal"){
                 _goalInformation = $"{i + 1}. [ ] {_goals[i]._goalName} ({_goals[i]._goalDescription})";
@@ -83,13 +89,9 @@ public class GoalManager{
                 string[] parts = lines[i].Split(":");
                 string goalTypeName = parts[0];
                 string[] goalContent = parts[1].Split(",");
-                Console.WriteLine(goalContent);
+                //Console.WriteLine(goalContent);
                 if(goalTypeName == "Simple Goal"){
                     SimpleGoal simpleGoal = new SimpleGoal(goalContent[0], goalContent[1], int.Parse(goalContent[2]), bool.Parse(goalContent[3]));
-                    //simpleGoal._goalName = goalContent[0];
-                    //simpleGoal._goalDescription = goalContent[1];
-                    //simpleGoal._goalAwardedPoints = int.Parse(goalContent[2]);
-                    //simpleGoal._isCompleted = bool.Parse(goalContent[3]);
                     _goals.Add(simpleGoal);
                 }
                 else if(goalTypeName == "Eternal Goal"){
@@ -102,7 +104,22 @@ public class GoalManager{
                 }
             }
         }
-        ListGoals();
+    }
+    public void RecordEvent(){
+        Console.WriteLine("The goals are: ");
+        for (int i = 0; i < _goals.Count(); i++){
+            int numberOfIndex = 1;
+            Console.WriteLine($"{numberOfIndex + i}. {_goals[i]._goalName}");
+        }
+        Console.WriteLine("Which goal did you acomplish? ");
+        int userInput = int.Parse(Console.ReadLine());
+        for (int i = 0; i < _goals.Count(); i++){
+            if (i == userInput - 1){
+                _goals[i]._isCompleted = true;
+                _totalPoints += _goals[i]._goalAwardedPoints;
+            }
+        }
+        Console.WriteLine($"You now have {_totalPoints} point");
     }
     
 }
