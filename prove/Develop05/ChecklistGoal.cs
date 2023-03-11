@@ -1,9 +1,16 @@
 public class ChecklistGoal : Goal{
 
-    public int _goalRepetition;
-    public int _checkListBonus;
-
     public ChecklistGoal(){
+        _goalTypeName = "Checklist Goal";
+    }
+    public ChecklistGoal(string goalName, string goalDescription, int goalAwardedPoints, int bonusPoints,int goalTimesToComplete, int goalTimesCompleted){
+        _goalTypeName = "Checklist Goal";
+        _goalName = goalName;
+        _goalDescription = goalDescription;
+        _goalAwardedPoints = goalAwardedPoints;
+        _bonusPoints = bonusPoints;
+        _goalTimesToComplete = goalTimesToComplete;
+        _goalTimesCompleted = goalTimesCompleted;
     }
     public override void DisplayPoints()
     {
@@ -15,13 +22,12 @@ public class ChecklistGoal : Goal{
         Console.Write("What is a short description of it? ");
         _goalDescription = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
-        _goalawardedPoints = int.Parse(Console.ReadLine());
-        SetGoalPoints(_goalawardedPoints);
+        _goalAwardedPoints = int.Parse(Console.ReadLine());
+        SetGoalPoints(_goalAwardedPoints);
 
         Console.Write("how many times does this goal need to be accomplished for a bonus? ");
-        _goalRepetition = int.Parse(Console.ReadLine());
+        _goalTimesToComplete = int.Parse(Console.ReadLine());
         Console.Write("What is the bonus for accomplishing it that many times? ");
-        _checkListBonus= int.Parse(Console.ReadLine());
-        _checklistGoal = true;
+        _bonusPoints= int.Parse(Console.ReadLine());
     }
 }

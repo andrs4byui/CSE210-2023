@@ -1,11 +1,13 @@
 public class SimpleGoal : Goal{
     public SimpleGoal(){
+        _goalTypeName = "Simple Goal";
     }
-    public SimpleGoal(string goalName, string goalDescription, int points, int goalawardedPoints) : base(points){
+    public SimpleGoal(string goalName, string goalDescription, int goalawardedPoints, bool isCompleted){
+        _goalTypeName = "Simple Goal";
         _goalName = goalName;
         _goalDescription = goalDescription;
-        _goalPoints = points;
-        _goalawardedPoints = goalawardedPoints;
+        _goalAwardedPoints = goalawardedPoints;
+        _isCompleted = isCompleted;
     }
     public override void DisplayPoints()
     {
@@ -18,7 +20,8 @@ public class SimpleGoal : Goal{
         Console.Write("What is a short description of it? ");
         _goalDescription = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
-        _goalawardedPoints = int.Parse(Console.ReadLine());
-        SetGoalPoints(_goalawardedPoints);
+        _goalAwardedPoints = int.Parse(Console.ReadLine());
+        SetGoalPoints(_goalAwardedPoints);
     }
+
 }

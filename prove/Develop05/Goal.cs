@@ -1,10 +1,13 @@
 public abstract class Goal {
-
+    public string _goalTypeName;
     public string _goalName ;
     public string _goalDescription;
     protected int _goalPoints;
-    public int _goalawardedPoints;
-    public bool _checklistGoal;
+    public int _goalAwardedPoints;
+    public int _goalTimesToComplete;
+    public bool _isCompleted;
+    public int _bonusPoints;
+    public int _goalTimesCompleted;
     public int GetGoalPoints(){
         return _goalPoints;
     }
@@ -24,7 +27,4 @@ public abstract class Goal {
     }
     public abstract void DisplayPoints();
     public abstract void DisplayQuestions();
-
-
-
 }

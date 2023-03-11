@@ -11,7 +11,7 @@ class Program
 
         //Console.WriteLine($"This is the User option choice {goalManager._userOptionChoice}");
         do {
-            Console.WriteLine($"You have {simpleGoal.GetGoalPoints()} points.");
+            Console.WriteLine($"You have {goalManager._totalPoints} points.");
             Console.WriteLine();
             goalManager.DisplayOptions();
 
@@ -44,8 +44,12 @@ class Program
             else if (goalManager._userOptionChoice == "3"){
                 goalManager.SaveGoals();
             }
+            else if (goalManager._userOptionChoice == "4"){
+                goalManager.LoadGoals();
+            }
             else {
-                Console.WriteLine("Not working");
+                Console.WriteLine("This is not a valid input.");
+                Console.WriteLine("Please insert a valid input");
             }
         } while (goalManager._userOptionChoice != "6");
     }

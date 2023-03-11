@@ -1,5 +1,13 @@
 public class EternalGoal : Goal {
     public EternalGoal(){
+        _goalTypeName = "Eternal Goal";
+    }
+    public EternalGoal(string goalName, string goalDescription, int goalawardedPoints){
+        _goalTypeName = "Eternal Goal";
+        _goalName = goalName;
+        _goalDescription = goalDescription;
+        _goalAwardedPoints = goalawardedPoints;
+    
     }
 
     public override void DisplayPoints()
@@ -12,7 +20,7 @@ public class EternalGoal : Goal {
         Console.Write("What is a short description of it? ");
         _goalDescription = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
-        _goalawardedPoints = int.Parse(Console.ReadLine());
-        SetGoalPoints(_goalawardedPoints);
+        _goalAwardedPoints = int.Parse(Console.ReadLine());
+        SetGoalPoints(_goalAwardedPoints);
     }
 }

@@ -1,0 +1,4 @@
+0
+Simple Goal:Finish homework,Complete CSE210 assignment,30,False
+Eternal Goal:Temple reservation,Talk to the temple to reserve ordinances,100
+Checklist Goal:Finish today's tasks,Complete all of the listed tasks for toda,20,50,4,2
