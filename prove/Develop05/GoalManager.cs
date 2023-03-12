@@ -15,7 +15,6 @@ public class GoalManager{
         Console.Write("Select a choice from the menu: ");
         _userOptionChoice = Console.ReadLine();
     }
-
     //When the user wants to create a new goal. 
     public void DisplayGoalOptions(){
         Console.WriteLine("The types of Goals are: ");
@@ -26,7 +25,6 @@ public class GoalManager{
         Console.Write("Please enter your choice: ");
         _goalOptionChoice = Console.ReadLine();
     }
-
     public void ListGoals(){
         Console.WriteLine("The goals are");
         for (int i = 0; i < _goals.Count(); i++){
@@ -46,13 +44,17 @@ public class GoalManager{
             }
 
             else if (_goals[i]._goalTypeName == "Checklist Goal") {
-                //ChecklistGoal checklistGoal = _goals[i];
-                _goalInformation = $"{i + 1}. [ ] {_goals[i]._goalName} ({_goals[i]._goalDescription}) -- Currently completed {_goals[i]._goalTimesCompleted}/{_goals[i]._goalTimesToComplete}";
-                Console.WriteLine(_goalInformation);
+                if(_goals[i]._isCompleted == true){
+                    _goalInformation = $"{i + 1}. [X] {_goals[i]._goalName} ({_goals[i]._goalDescription}) -- Currently completed {_goals[i]._goalTimesCompleted}/{_goals[i]._goalTimesToComplete}";
+                    Console.WriteLine(_goalInformation);
+                    }
+                else if (_goals[i]._isCompleted == false) {
+                    _goalInformation = $"{i + 1}. [ ] {_goals[i]._goalName} ({_goals[i]._goalDescription}) -- Currently completed {_goals[i]._goalTimesCompleted}/{_goals[i]._goalTimesToComplete}";
+                    Console.WriteLine(_goalInformation);
+                    }
                 }
         }
     }
-
     public void SaveGoals(){
         Console.Write("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
@@ -70,7 +72,7 @@ public class GoalManager{
                     outputFile.WriteLine(_goalInformation);
                 }
                 else if (_goals[i]._goalTypeName == "Checklist Goal") {
-                    _goalInformation = $"{_goals[i]._goalTypeName}:{_goals[i]._goalName},{_goals[i]._goalDescription},{_goals[i]._goalAwardedPoints},{_goals[i]._bonusPoints},{_goals[i]._goalTimesToComplete},{_goals[i]._isCompleted}";
+                    _goalInformation = $"{_goals[i]._goalTypeName}:{_goals[i]._goalName},{_goals[i]._goalDescription},{_goals[i]._goalAwardedPoints},{_goals[i]._bonusPoints},{_goals[i]._goalTimesToComplete},{_goals[i]._goalTimesCompleted},{_goals[i]._isCompleted}";
                     outputFile.WriteLine(_goalInformation);
                 }
             }
@@ -99,7 +101,7 @@ public class GoalManager{
                     _goals.Add(eternalGoal);
                 }
                 else if(goalTypeName == "Checklist Goal"){
-                    ChecklistGoal checklistGoal = new ChecklistGoal(goalContent[0], goalContent[1], int.Parse(goalContent[2]), int.Parse(goalContent[3]), int.Parse(goalContent[4]), int.Parse(goalContent[5]));
+                    ChecklistGoal checklistGoal = new ChecklistGoal(goalContent[0], goalContent[1], int.Parse(goalContent[2]), int.Parse(goalContent[3]), int.Parse(goalContent[4]), int.Parse(goalContent[5]), bool.Parse(goalContent[6]));
                     _goals.Add(checklistGoal);
                 }
             }
@@ -114,12 +116,23 @@ public class GoalManager{
         Console.WriteLine("Which goal did you acomplish? ");
         int userInput = int.Parse(Console.ReadLine());
         for (int i = 0; i < _goals.Count(); i++){
-            if (i == userInput - 1){
-                _goals[i]._isCompleted = true;
-                _totalPoints += _goals[i]._goalAwardedPoints;
+            if (_goals[i]._goalTypeName != "Checklist Goal"){
+                if (i == userInput - 1){
+                    _goals[i]._isCompleted = true;
+                    _totalPoints += _goals[i]._goalAwardedPoints;
+                }
+            }
+            else{
+                if (i == userInput - 1){
+                    _goals[i]._goalTimesCompleted ++;
+                    _totalPoints += _goals[i]._goalAwardedPoints;
+                    if (_goals[i]._goalTimesToComplete <= _goals[i]._goalTimesCompleted){
+                        _goals[i]._isCompleted = true;
+                        _totalPoints += _goals[i]._bonusPoints;
+                        }
+                }
             }
         }
         Console.WriteLine($"You now have {_totalPoints} point");
-    }
-    
+    }   
 }

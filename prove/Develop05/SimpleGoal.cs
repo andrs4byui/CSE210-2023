@@ -21,7 +21,7 @@ public class SimpleGoal : Goal{
         _goalDescription = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
         _goalAwardedPoints = int.Parse(Console.ReadLine());
-        SetGoalPoints(_goalAwardedPoints);
+        //SetGoalPoints(_goalAwardedPoints);
     }
 
 }

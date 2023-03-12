@@ -1,5 +1,4 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
@@ -8,22 +7,16 @@ class Program
         SimpleGoal simpleGoal = new SimpleGoal();
         EternalGoal eternalGoal = new EternalGoal();
         ChecklistGoal checklistGoal = new ChecklistGoal();
-
-        //Console.WriteLine($"This is the User option choice {goalManager._userOptionChoice}");
         do {
             Console.WriteLine($"You have {goalManager._totalPoints} points.");
             Console.WriteLine();
             goalManager.DisplayOptions();
-
         //If the user wants to create a Goal
             if (goalManager._userOptionChoice == "1"){
                 goalManager.DisplayGoalOptions();
                 //Console.WriteLine(goalManager._goalOptionChoice);
                 if (goalManager._goalOptionChoice == "1"){
                     simpleGoal.DisplayQuestions();
-                    //Console.WriteLine(simpleGoal._goalName);
-                    //Console.WriteLine(simpleGoal._goalDescription);
-                    //Console.WriteLine(simpleGoal._goalawardedPoints);
                     goalManager._goals.Add(simpleGoal);
                 }
                 else if (goalManager._goalOptionChoice == "2"){
@@ -35,7 +28,7 @@ class Program
                     goalManager._goals.Add(checklistGoal);
                 }
                 else {
-                    Console.WriteLine("Nothing here");
+                    NotAValidInput();
                 }
             }
             else if (goalManager._userOptionChoice == "2"){
@@ -54,7 +47,7 @@ class Program
             else if (goalManager._userOptionChoice == "6"){
                 Console.WriteLine("Did you save your goal list? Y/N");
                 string userSaveInput = Console.ReadLine();
-                if (userSaveInput != "Yes" | userSaveInput != "Y" | userSaveInput != "yes"){
+                if (userSaveInput == "No" | userSaveInput == "N" | userSaveInput == "no" | userSaveInput == "n"){
                     Console.WriteLine("Are you sure to exit without saving?");
                     string userDecitionToSave = Console.ReadLine();
                     if (userDecitionToSave == "no"){
@@ -64,12 +57,18 @@ class Program
                         return;
                     }
                 }
-
+                else if (userSaveInput == "Yes" | userSaveInput == "Y" | userSaveInput == "yes" | userSaveInput == "y"){
+                    return;
+                }
             }
             else {
-                Console.WriteLine("This is not a valid input.");
-                Console.WriteLine("Please insert a valid input");
+                NotAValidInput();        
             }
         } while (goalManager._userOptionChoice != "6");
-    }
+        
+        void NotAValidInput(){
+            Console.WriteLine("This is not a valid input.");
+            Console.WriteLine("Please insert a valid input");
+        }
+    }    
 }

@@ -1,0 +1,2 @@
+150
+Checklist Goal:Shopping list,buy things from the market,10,100,4,4,True

@@ -3,7 +3,7 @@ public class ChecklistGoal : Goal{
     public ChecklistGoal(){
         _goalTypeName = "Checklist Goal";
     }
-    public ChecklistGoal(string goalName, string goalDescription, int goalAwardedPoints, int bonusPoints,int goalTimesToComplete, int goalTimesCompleted){
+    public ChecklistGoal(string goalName, string goalDescription, int goalAwardedPoints, int bonusPoints,int goalTimesToComplete, int goalTimesCompleted, bool isCompleted){
         _goalTypeName = "Checklist Goal";
         _goalName = goalName;
         _goalDescription = goalDescription;
@@ -11,6 +11,7 @@ public class ChecklistGoal : Goal{
         _bonusPoints = bonusPoints;
         _goalTimesToComplete = goalTimesToComplete;
         _goalTimesCompleted = goalTimesCompleted;
+        _isCompleted = isCompleted;
     }
     public override void DisplayPoints()
     {
@@ -23,11 +24,18 @@ public class ChecklistGoal : Goal{
         _goalDescription = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
         _goalAwardedPoints = int.Parse(Console.ReadLine());
-        SetGoalPoints(_goalAwardedPoints);
+        //SetGoalPoints(_goalAwardedPoints);
 
         Console.Write("how many times does this goal need to be accomplished for a bonus? ");
         _goalTimesToComplete = int.Parse(Console.ReadLine());
         Console.Write("What is the bonus for accomplishing it that many times? ");
         _bonusPoints= int.Parse(Console.ReadLine());
+        _goalTimesCompleted = 0;
+    }
+    public int CheckIfCompleted(){
+        if (_goalTimesToComplete == _goalTimesCompleted){
+            _isCompleted = true;
+        }
+        return _bonusPoints;
     }
 }

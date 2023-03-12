@@ -1,4 +1,2 @@
-40
-Simple Goal:a third simple goal,the third simple goal,40,False
-Simple Goal:a third simple goal,the third simple goal,40,False
-Simple Goal:a third simple goal,the third simple goal,40,True
+20
+Simple Goal:Sleep early,sleep everyday early,20,True
